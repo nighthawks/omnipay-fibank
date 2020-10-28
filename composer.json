@@ -1,7 +1,7 @@
 {
-    "name": "ampeco/omnipay-fibank",
+    "name": "nighthawks/omnipay-fibank",
     "type": "library",
-    "description": "Omnipay plugin for fibank ECOMM recurring payments",
+    "description": "Omnipay plugin for fibank ECOMM recurring payments, fork of ampeco/omnipay-fibank",
     "version": "1.2.3",
     "keywords": [
         "omnipay",

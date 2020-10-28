@@ -31,6 +31,11 @@ class TransactionResultRequest extends AbstractRequest
         $response = $this->fibank->checkTransactionStatus($data['trans_id']);
         $response['TRANSACTION_ID'] = $data['trans_id'];
         
+        if(is_array($response)) {
+            // prevent redirect according to the protocol of the original package (should be refactored)
+            $response[''] = true;   
+        }
+        
         return $this->createResponse($response);
     }
 }

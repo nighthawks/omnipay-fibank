@@ -34,6 +34,10 @@ class PurchaseRequest extends AbstractRequest
         if(!empty($data['recc_pmnt_id'])) {
             $response = $this->fibank->purchaseRecurringPayment($data['amount'], $data['description'],
                 $data['recc_pmnt_id'], $data['language']);
+            if(is_array($response)) {
+                // prevent redirect according to the protocol of the original package (should be refactored)
+                $response[''] = true;   
+            }
         } else {
             $response = $this->fibank->sendTransaction($data['amount'], $data['description']);
         }

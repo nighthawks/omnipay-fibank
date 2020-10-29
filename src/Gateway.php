@@ -185,6 +185,11 @@ class Gateway extends AbstractGateway
     public function reverse(array $parameters = array()){
         return $this->createRequest('\Ampeco\OmnipayFibank\Message\ReversalRequest', $parameters);
     }
+
+    public function completePurchase(array $parameters = array())
+    {
+        return $this->createRequest('\Ampeco\OmnipayFibank\Message\CompletePurchaseRequest', $parameters);
+    }
     
     public function __call($name, $arguments)
     {

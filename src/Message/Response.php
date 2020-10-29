@@ -82,6 +82,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
         $res->imageUrl = '';
         $res->last4 = '';
         $res->cardType = 'Unknown';
+        $res->cardTypeShort = 'default';
         $expiration = $this->data['RECC_PMNT_EXPIRY'];
         $expirationMonth = intval(substr($expiration, 0, 2));
         $expirationYear = 2000 + intval(substr($expiration, 2, 2));
@@ -95,15 +96,19 @@ class Response extends AbstractResponse implements RedirectResponseInterface
         switch ($prefix){
             case 4:
                 $res->cardType = 'Visa';
+                $res->cardTypeShort = 'visa';
                 break;
             case 5:
                 $res->cardType = 'MasterCard';
+                $res->cardTypeShort = 'mastercard';
                 break;
             case 6:
                 $res->cardType = 'Discover/Diners Club';
+                $res->cardTypeShort = 'diners';
                 break;
             case 3:
                 $res->cardType = 'Maestro';
+                $res->cardTypeShort = 'maestro';
                 break;
         }
         

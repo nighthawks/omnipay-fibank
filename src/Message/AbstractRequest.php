@@ -98,7 +98,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this->getParameter('terminalIdentifier');
     }
 
-    public function seTerminalIdentifier($value)
+    public function setTerminalIdentifier($value)
     {
         return $this->setParameter('terminalIdentifier', $value);
     }

@@ -76,7 +76,7 @@ class Gateway extends AbstractGateway
         return $this->setParameter('v2', $value);
     }
 
-    public function terminalIdentifier()
+    public function getTerminalIdentifier()
     {
         return $this->getParameter('terminalIdentifier');
     }
@@ -133,12 +133,12 @@ class Gateway extends AbstractGateway
         return $this->setParameter('connectTimeout', $value);
     }
     
-    
     protected function createRequest($class, array $parameters)
     {
         $obj = new $class($this->httpClient, $this->httpRequest, $this->fibank);
-        
-        return $obj->initialize(array_replace($this->getParameters(), $parameters));
+        $obj->initialize(array_replace($this->getParameters(), $parameters));
+
+        return $obj;
     }
     
     public function authorize(array $parameters = array())

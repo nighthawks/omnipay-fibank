@@ -32,6 +32,7 @@ class Ecomm
     protected $client_ip_addr;
     protected $connect_timeout = 60;
     protected $currency;
+    protected $terminal_identifier = '';
 
     /**
      * Ecomm constructor.
@@ -70,6 +71,11 @@ class Ecomm
     public function setMerchantCertificate($value)
     {
         $this->certificate_pem = $value;
+    }
+
+    public function setTerminalIdentifier($value)
+    {
+        $this->terminal_identifier = $value;
     }
 
     public function setMerchantCertificatePassword($value)
@@ -217,7 +223,7 @@ class Ecomm
      */
     public function getRedirectUrl($trans_id)
     {
-        return $this->endpoint . $this->clientPath . '?trans_id=' . urlencode($trans_id);
+        return $this->endpoint . $this->clientPath . '?trans_id=' . urlencode($trans_id) . '&terminal_identifier=' . urlencode($this->terminal_identifier);
     }
 
     /**

@@ -92,6 +92,17 @@ abstract class AbstractRequest extends BaseAbstractRequest
     {
         return $this->setParameter('language', $value);
     }
+
+    public function getTerminalIdentifier()
+    {
+        return $this->getParameter('terminalIdentifier');
+    }
+
+    public function seTerminalIdentifier($value)
+    {
+        return $this->setParameter('terminalIdentifier', $value);
+    }
+
     public function configure()
     {
         if ($this->getTestMode()) {
@@ -108,6 +119,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
         $this->fibank->setMerchantCertificate($this->getMerchantCertificate());
         $this->fibank->setMerchantCertificatePassword($this->getMerchantCertificatePassword());
+        $this->fibank->setTerminalIdentifier($this->getTerminalIdentifier());
 
         $this->fibank->setClientIpAddr($this->getClientIp());
 

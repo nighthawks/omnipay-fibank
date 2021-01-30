@@ -33,6 +33,10 @@ class FibankConfiguration
             $res->setConnectTimeout(self::$global['connectTimeout']);
         }
 
+        if (isset(self::$global['terminalIdentifier'])) {
+            $res->setTerminalIdentifier(self::$global['terminalIdentifier']);
+        }
+
         if (isset(self::$global['testMode']) && self::$global['testMode']) {
             $res->setTestMode();
             
@@ -82,5 +86,13 @@ class FibankConfiguration
             return self::$global['testMode'];
         }
         self::$global['testMode'] = $value;
+    }
+
+    public static function terminalIdentifier($value = null)
+    {
+        if (empty($value)) {
+            return self::$global['terminalIdentifier'];
+        }
+        self::$global['terminalIdentifier'] = $value;
     }
 }

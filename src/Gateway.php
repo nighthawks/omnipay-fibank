@@ -52,6 +52,7 @@ class Gateway extends AbstractGateway
             'merchantCertificatePassword' => '',
             'testMode'                    => false,
             'v2'                          => false,
+            'terminalIdentifier'          => ''
         );
     }
 
@@ -73,6 +74,16 @@ class Gateway extends AbstractGateway
     public function setV2($value)
     {
         return $this->setParameter('v2', $value);
+    }
+
+    public function terminalIdentifier()
+    {
+        return $this->getParameter('terminalIdentifier');
+    }
+
+    public function setTerminalIdentifier($value)
+    {
+        return $this->setParameter('terminalIdentifier', $value);
     }
 
     public function getMerchantCertificatePassword()
